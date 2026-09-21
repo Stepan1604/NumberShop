@@ -576,7 +576,7 @@ async def cb_disagree_terms(call: types.CallbackQuery) -> None:
 async def cb_reviews(call: types.CallbackQuery) -> None:
     await bot.answer_callback_query(call.id)
     markup = kb([
-        [url_btn("⭐ ЧИТАТЬ ОТЗЫВЫ", "https://t.me/poncisnop")],
+        [url_btn("⭐ ЧИТАТЬ ОТЗЫВЫ", "https://t.me/+xjuMFVL-lLwyZTZi")],
         [btn("🔙 НАЗАД", "start")],
     ])
     await edit_or_send(
@@ -587,7 +587,12 @@ async def cb_reviews(call: types.CallbackQuery) -> None:
 @bot.callback_query_handler(func=lambda c: c.data == "support")
 async def cb_support(call: types.CallbackQuery) -> None:
     await bot.answer_callback_query(call.id)
-    await edit_or_send(call, "🆘 ПОДДЕРЖКА\n\n👤 @ponghs\n👤 @Good_NaBloke", back("start"))
+    await edit_or_send(
+        call,
+        "🆘 ПОДДЕРЖКА\n\n👤 @Good_NaBloke",
+        back("start"),
+        parse_mode=None,
+    )
 
 
 # --------------------------------------------------------------------------- #
@@ -2062,6 +2067,7 @@ async def main() -> None:
         timeout=30,
         request_timeout=30,
         allowed_updates=telebot.util.update_types,
+        logger_level=0,
     )
 
 
