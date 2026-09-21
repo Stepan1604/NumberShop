@@ -1,0 +1,19 @@
+# === Конфигурация (секреты) ===
+config.py
+
+# === IDE ===
+.idea/
+
+# === Python ===
+__pycache__/
+*.pyc
+
+# === База данных (SQLAlchemy / SQLite) ===
+*.db
+*.db-journal
+*.sqlite
+*.sqlite3
+
+# === Telethon-сессии ===
+*.session
+*.session-journal
