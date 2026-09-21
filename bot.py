@@ -58,6 +58,8 @@ logging.basicConfig(
 logger = logging.getLogger(__name__)
 logging.getLogger("telethon").setLevel(logging.WARNING)
 
+logging.getLogger("TeleBot").setLevel(logging.CRITICAL)
+
 # --------------------------------------------------------------------------- #
 #                             ГЛОБАЛЬНОЕ СОСТОЯНИЕ                            #
 # --------------------------------------------------------------------------- #
@@ -2060,9 +2062,6 @@ async def on_startup() -> None:
 async def main() -> None:
     await on_startup()
     threading.Thread(target=run_flask, daemon=True).start()
-    # Явно указываем типы обновлений, иначе Telegram использует ранее
-    # сохранённый фильтр (например только "message") и не присылает
-    # callback_query — из-за этого не работали инлайн-кнопки.
     await bot.infinity_polling(
         timeout=30,
         request_timeout=30,
