@@ -98,7 +98,7 @@ pip install -r requirements.txt
 Для PostgreSQL также установите драйвер:
 
 ```bash
-pip install psycopg2-binary
+pip install psycopg2
 ```
 
 ## Конфигурация
